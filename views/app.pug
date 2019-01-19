@@ -1,0 +1,28 @@
+extends layout
+
+block content
+  h1= title
+
+  div(style="width:300px;")
+    p(id="text") Price per square meter: $#{price}
+    p(hidden id="price") #{price}
+
+    p
+      | Height: 
+      input(type="text" id="height")
+      |  in cm
+      br
+      | Width: 
+      input(type="text" id="width")
+      |  in cm
+
+    p
+      | Is double layered? 
+      input(type="checkbox" id="double" value='true')
+
+    script(type="text/javascript" src="/javascripts/calcscript2.js")
+
+    br
+    p Click to calculate price.
+    button(type="button" onClick="calculate(price)") Click Me!
+    p(id="final") Total Price:
