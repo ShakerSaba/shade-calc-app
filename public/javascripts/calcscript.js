@@ -21,6 +21,6 @@ function calculate() {
         if(document.getElementById("double").checked)
         price *= 2
 
-        final.innerHTML = "Total Price: $" + price;
+        final.innerHTML = "Total Price: $" + price.toFixed(2);
     }
 }
