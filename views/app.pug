@@ -3,26 +3,35 @@ extends layout
 block content
   h2= title
 
-  div(style="width:300px;")
+  div(style="width:100%;")
     p(id="text") Price per square meter: $#{price}
     p(hidden id="price") #{price}
 
+    form(id="measure")
+      strong Select a unit:
+      input(type="radio" name="measure" value="mm")
+      | mm 
+      input(type="radio" name="measure" value="cm" checked)
+      | cm 
+      input(type="radio" name="measure" value="in")
+      | inches
+
     p
-      | Height: 
-      input(type="text" id="height")
-      |  in cm
-      br
-      | Width: 
+      | Enter your 
+      strong width: 
       input(type="text" id="width")
-      |  in cm
+      br
+      | Enter your 
+      strong height/drop: 
+      input(type="text" id="height")
 
     p
       | Is double layered? 
       input(type="checkbox" id="double" value='true')
+    br
 
     script(type="text/javascript" src="/javascripts/calcscript2.js")
 
-    br
-    p Click to calculate price.
-    button(type="button" onClick="calculate(price)") Click Me!
-    p(id="final") Total Price:
+    button(type="button" onClick="calculate()")
+      strong Click to calculate price.
+    h3(id="final") Total Price:

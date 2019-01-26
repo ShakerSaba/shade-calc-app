@@ -8,29 +8,38 @@ block content
       | Select a type of fabric: 
       select(id="LIST")
         option(value="0") Select Fabric:
-        option(value="5.55") Type 1
-        option(value="2.75") Type 2
-        option(value="10.25") Type 3
-        option(value="15.00") Type 4
+        option(value="10.55") Type 1
+        option(value="15.75") Type 2
+        option(value="20.25") Type 3
+        option(value="35.00") Type 4
 
     p(id="text") Price per square meter: (please select a type)
     
+    form(id="measure")
+      strong Select a unit:
+      input(type="radio" name="measure" value="mm")
+      | mm 
+      input(type="radio" name="measure" value="cm" checked)
+      | cm 
+      input(type="radio" name="measure" value="in")
+      | inches
+
     p
-      | Height: 
-      input(type="text" id="height")
-      |  in cm
-      br
-      | Width: 
+      | Enter your 
+      strong width: 
       input(type="text" id="width")
-      |  in cm
+      br
+      | Enter your 
+      strong height/drop: 
+      input(type="text" id="height")
 
     p
       | Is double layered? 
       input(type="checkbox" id="double" value='true')
+    br
 
     script(type="text/javascript" src="/javascripts/calcscript.js")
 
-    
-    p Click to calculate price.
-    button(type="button" onClick="calculate()") Click Me!
-    p(id="final") Total Price:
+    button(type="button" onClick="calculate()")
+      strong Click to calculate price.
+    h3(id="final") Total Price:
